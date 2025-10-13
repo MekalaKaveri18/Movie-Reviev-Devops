@@ -17,3 +17,4 @@ spec:
         image: shivaji108/movie-review:kuberimg2  
         ports:
         - containerPort: 5000
+
