@@ -1,34 +1,26 @@
 pipeline { 
     agent any
 
-    environment {
-        IMAGE_NAME = "shivaji108/movie-review"
-        IMAGE_TAG = "kuberimg2"
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-pass') 
-    }
-
     stages {
 
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image..."
-                bat "docker build -t %IMAGE_NAME%:%IMAGE_TAG% ."
+               bat "docker build -t movie-reviewapp:v1 ."
             }
         }
 
         stage('Docker Login') {
             steps {
                 echo "Logging into Docker Hub..."
-                bat """
-                echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin
-                """
+                bat 'docker login -u shivaji108 -p Kaveri@1729'
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                echo "Pushing image to Docker Hub..."
-                bat "docker push %IMAGE_NAME%:%IMAGE_TAG%"
+               bat 'docker tag movie-reviewapp:v1 shivaji108/sample:kuberimg2' 
+                bat 'docker push shivaji108/sample:kuberimg2'
             }
         }
 
@@ -50,3 +42,4 @@ pipeline {
         }
     }
 }
+
