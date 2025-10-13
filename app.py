@@ -17,8 +17,9 @@ def add_review():
     movie = request.form['movie']
     review = request.form['review']
     rating = request.form['rating']
-    reviews.append({'movie': movie, 'review': review, 'rating': rating})
+    reviews.append({'movie': movie, 'review': review, 'rating':rating})
     return render_template('index.html', reviews=reviews)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
