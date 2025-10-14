@@ -14,8 +14,6 @@ spec:
     spec:
       containers:
       - name: moviereview
-        image: shivaji108/movie-review:kuberimg2  
+        image: shivaji108/movie-reviewapp:kuberimg2
         ports:
         - containerPort: 80
-
-
