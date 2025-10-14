@@ -16,5 +16,6 @@ spec:
       - name: moviereview
         image: shivaji108/movie-review:kuberimg2  
         ports:
-        - containerPort: 5000
+        - containerPort: 80
+
 
