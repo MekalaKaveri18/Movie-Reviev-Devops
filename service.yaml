@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: moviereview-service
 spec:
+  type: LoadBalancer
   selector:
     app: moviereview
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 5000
-  type: LoadBalancer
-
+    - port: 80
+      targetPort: 5000
