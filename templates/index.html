@@ -150,7 +150,7 @@
       <input type="text" name="movie" placeholder="Movie name" required><br>
       <textarea name="review" placeholder=" Write your review" required></textarea><br>
       <input type="number" name="rating" min="1" max="5" placeholder="Rating (1–5)"><br>
-      <button type="submit">click here for Review</button>
+      <button type="submit">Add Review</button>
     </form>
 
     <h3>All Reviews:</h3>
@@ -159,7 +159,7 @@
       {% for r in reviews %}
         <div class="review">
           <p><strong>{{ r.movie }}</strong> 
-          <span class="Give Rating">({{ r.rating }}/5)</span>: {{ r.review }}</p>
+          <span class="Rating">({{ r.rating }}/5)</span>: {{ r.review }}</p>
         </div>
       {% endfor %}
     {% else %}
